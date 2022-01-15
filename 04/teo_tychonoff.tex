@@ -1,0 +1,65 @@
+\section{O teorema de Tychonoff com filtros}
+\label{sec:tychonoff}
+
+ \begin{theorem}[Thychonoff]
+ \label{teo:tychonoff}
+ Dada uma família
+ $X_{\alpha}$
+ de espaços topológicos compactos,
+ o espaço produto
+ $X = \displaystyle{ \prod_{\alpha} X_{\alpha} }$
+ também é compacto com respeito à topologia produto.
+ \end{theorem}
+ 
+ Apresentamos aqui uma demonstração utilizando filtros.
+ Em seguida, apresentamos e demonstramos o Teorema
+ da sub-base de Alexander e utilizamos esse resultado
+ para dar um prova alternativa do Teorema de Tychonoff.
+ 
+ \begin{proof}
+ \todo{Aqui eu coloquei uma demonstração
+ que aproveita a caracterização de compacidade
+ com filtros que eu tinha colocado antes.
+ Não sei se era exatamente isso que você
+ tinha em mente, prof, mas mesmo que não
+ seja achei o argumento muito elegante :-)}
+ % demonstrar usando filtros
+ % a demonstração tem dois passos:
+ 
+ % 1. any image of an ultrafilter is an ultrafilter 
+ % (in particular, any projection from a product space)
+ 
+ % -> esse ponto é a proposição do ultrafiltro push forward, então done
+ 
+ % 2. any filter in the product space converges 
+ % if and only if all its projections converge
+ % -> esse é o teorema 3.3.2 do Cap 3
+ 
+ Da Proposição \ref{prop:imag_ultrafiltro},
+ sabemos que imagem de ultrafiltro é ultrafiltro,
+ então em particular as imagens de ultrafiltros no
+ espaço produto pelas projeções
+ $\pi_{\alpha}$
+ em cada
+ $X_{\alpha}$
+ são também ultrafiltros.
+ 
+%  O Teorema \ref{teo:4.2} 
+%  nos diz que os ultrafiltros
+%  $(\pi_{\alpha})_*(\mathfrak{U})$
+%  convergem para pelo menos um ponto em cada
+%  $X_{\alpha}$
+%  se, e somente se, o ultrafiltro
+%  $\mathfrak{U}$
+%  no espaço produto converge para pelo menos um ponto.
+ 
+ Ora, então o Teorema \ref{teo:2.1}
+ nos permite concluir que 
+ $X$
+ é compacto já que, por hipótese, os
+ $X_{\alpha}$ 
+ são compactos e, portanto, os
+ $(\pi_{\alpha})_*(\mathfrak{U})$
+ convergem para pelo menos um ponto pelo
+ Teorema \ref{teo:4.2}.
+ \end{proof}

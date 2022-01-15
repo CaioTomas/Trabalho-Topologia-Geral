@@ -1,0 +1,252 @@
+\section{Caracterização da topologia por ultrafiltros}
+\label{sec:topol_filtros}
+%Seção 2 da ref
+
+ Seja 
+ $X$
+ um espaço topológico e 
+ $\mathfrak{U}$
+ um ultrafiltro em 
+ $X$.
+ Dizemos que 
+ $\mathfrak{U}$
+ \textbf{converge} para um ponto
+ $x \in X$
+ e denotamos
+ $\mathfrak{U} \to x$
+ se toda vizinhança aberta
+ $U$
+ de
+ $x$
+ é tal que
+ $U \in \mathfrak{U}$.
+ 
+ \begin{theorem}
+ \label{teo:2.1}
+ Seja
+ $X$
+ um espaço topológico.
+ Então
+ \begin{enumerate}[(a)]
+    \item $X$ é Hausdorff se, e somente se, 
+    todo ultrafiltro em $X$ converge para \textbf{no máximo} um ponto.
+    \item $X$ é compacto se, e somente se, 
+    todo ultrafiltro em $X$ converge para \textbf{pele menos} um ponto.
+ \end{enumerate}
+ \end{theorem}
+
+ \begin{proof}
+ \begin{enumerate}[(a)]
+     \item Seja 
+     $X$
+     Hausdorff e suponha que
+     $\mathfrak{U} \to x$
+     e
+     $\mathfrak{U} \to y$
+     para dois pontos
+     $x \neq y$.
+     Sejam
+     $U, V \subseteq X$
+     vizinhanças abertas disjuntas de
+     $x$
+     e
+     $y$,
+     respectivamente. 
+     Então temos
+     $U, V \in \mathfrak{U}$
+     e, portanto, 
+     $\varnothing = U \cap V \in \mathfrak{U}$,
+     absurdo.
+     Logo,
+     $\mathfrak{U}$
+     converge para no máximo um ponto.
+     
+     Reciprocamente, suponha que todo ultrafiltro em
+     $X$
+     converge para no máximo um ponto, 
+     e sejam
+     $x \neq y$
+     dois pontos de 
+     $X$.
+     Suponha que toda vizinhança aberta de 
+     $x$
+     tem interseção com toda vizinhança aberta de
+     $y$.
+     Então a família
+     \begin{equation*}
+         \mathfrak{G}
+         =
+         \setsuchthat{ \text{aberto } U \subseteq X }{ x \in U \text{ ou } y \in U }
+     \end{equation*}
+     tem a propriedade da interseção finita, de modo que
+     $\mathfrak{G} \subseteq \mathfrak{U}$
+     para algum ultrafiltro
+     $\mathfrak{U}$.
+     Se
+     $U, V \subseteq X$
+     são vizinhanças abertas de
+     $x$
+     e
+     $y$, 
+     respectivamente, então
+     $U, V \in \mathfrak{U}$,
+     de modo que
+     $U \cap V \neq \varnothing$.
+     
+     \item Seja 
+     $X$
+     compacto e suponha que
+     $\mathfrak{U}$
+     é um ultrafiltro em
+     $X$
+     que não converge para nenhum ponto de
+     $X$.
+     Então para todo ponto
+     $x \in X$,
+     podemos encontrar uma vizinhança aberta
+     $U_x$
+     de
+     $x$
+     tal que
+     $U_x \notin \mathfrak{U}$,
+     ou seja,
+     $X \setminus U_x \in \mathfrak{U}$.
+     Obtemos então uma família de fechados
+     \begin{equation*}
+         \setsuchthat{ X \setminus U_x }{ x \in X }
+     \end{equation*}
+     com interseção vazia, já que
+     $x \notin X \setminus U_x$.
+     Daí, existem 
+     $x_1, x_2, \dots, x_n \in X$
+     tais que
+     \begin{equation*}
+         (X \setminus U_{x_1}) \cap \cdots \cap (X \setminus U_{x_2}) 
+         = 
+         \varnothing,
+     \end{equation*}
+     o que é impossível já que 
+     $X \setminus U_{x_i} \in \mathfrak{U}$
+     para todo 
+     $i$.
+     
+     Reciprocamente, suponha que todo ultrafiltro em 
+     $X$
+     converge e suponha que
+     $X$
+     tem uma cobertura aberta
+     $\mathcal{O}$
+     que não possui subcobertura finita.
+     Isso implica que a família de fechados
+     \begin{equation*}
+         \mathfrak{G}
+         =
+         \setsuchthat{ X \setminus U }{ U \in \mathcal{O} }
+     \end{equation*}
+     tem a propriedade da interseção finita.
+     Estenda isso para um ultrafiltro
+     $\mathfrak{U} \supseteq \mathfrak{G}$.
+     Por hipótese, existe um ponto
+     $x \in X$
+     tal que 
+     $\mathfrak{U} \to x$.
+     O ponto 
+     $x$
+     é coberto por algum
+     $U \in \mathcal{O}$,
+     de modo que
+     $U \in \mathfrak{U}$.
+     Mas também temos
+     $X \setminus U \in \mathfrak{G} \subseteq \mathfrak{U}$,
+     de modo que
+     $\mathfrak{U}$
+     contém
+     $(X \setminus U) \cap U = \varnothing$,
+     uma contradição.
+ \end{enumerate}
+ \end{proof}
+ 
+ Uma consequência do item (b) é que ``todo ultrafiltro em 
+ $X$ 
+ converge para pelo menos um ponto'' é equivalente a
+ ``toda cobertura aberta de 
+ $X$ 
+ possui subcobertura finita''. 
+ Portanto, definir compacidade como
+ ``toda cobertura tem subcobertura finita''
+ é equivalente a definir 
+ ``todo ultrafiltro converge para pelo menos um ponto''.
+ 
+ Ademais, note que o teorema acima nos diz que 
+ $X$
+ é Hausdorff e compacto se, e somente se, todo ultrafiltro em
+ $X$
+ converge para exatamente um ponto.
+ Temos também a seguinte caracterização da topologia por ultrafiltros.
+
+ %talvez tirar esse teorema
+ \begin{theorem}
+ \label{teo:2.2}
+ Seja
+ $X$
+ um espaço topológico.
+ $U \subseteq X$ 
+ é aberto se, e somente se, 
+ $U \in \mathfrak{U}$
+ para todo ultrafiltro
+ $\mathfrak{U}$
+ convergindo para algum ponto de
+ $U$.
+ \end{theorem}
+ \begin{proof}
+ Se 
+ $U \subseteq X$
+ é aberto e
+ $\mathfrak{U}$
+ é um ultrafiltro convergindo para um ponto
+ $u \in U$,
+ então devemos ter
+ $U \in \mathfrak{U}$
+ pela definição da convergência
+ $\mathfrak{U} \to u$.
+ 
+ Reciprocamente, seja
+ $U \subseteq X$
+ e suponha que
+ $U \in \mathfrak{U}$
+ para todo ultrafiltro
+ $\mathfrak{U}$
+ convergindo para algum ponto de
+ $U$.
+ Se 
+ $U$ 
+ não é aberto, então existe
+ $u \in U$
+ tal que toda vizinhança aberta de 
+ $u$
+ contém pelo menos um ponto de
+ $X \setminus U$.
+ Isso implica que a coleção
+ \begin{equation*}
+     \mathfrak{G}
+     =
+     \left\{ X \setminus U \right\} \cup \left\{ \text{vizinhanças abertas de } u \right\}
+ \end{equation*}
+ tem a propriedade da interseção finita.
+ Estenda essa família para um ultrafiltro
+ $\mathfrak{U} \supseteq \mathfrak{G}$.
+ Por construção, 
+ $\mathfrak{U}$
+ contém toda vizinhança aberta de 
+ $u$,
+ de modo que
+ $\mathfrak{U} \to u$.
+ Por hipótese, 
+ $U \in \mathfrak{U}$,
+ o que implica
+ $\varnothing = (X \setminus U) \cap U \in \mathfrak{U}$,
+ absurdo. 
+ Logo, 
+ $U$
+ deve ser aberto, como afirmado.
+ \end{proof}

@@ -1,0 +1,488 @@
+\section{O teorema da sub-base de Alexander}
+\label{sec:alexander}
+
+ \todo{Nessa seção eu ainda estou com as demonstrações
+ inalteradas, tem de justificar melhor o uso do
+ Lema de Zorn na demonstração do Teorema da Sub-Base.
+ Além disso, também vou pensar em como fazer
+ com filtros e sem o Lema de Zorn.}
+ 
+ \begin{theorem}[Alexander]
+ \label{teo:alexander}
+ Seja
+ $(X, \tau)$
+ um espaço topológico.
+ Se 
+ $X$
+ tem uma sub base
+ $\mathcal{C}$
+ tal que toda cobertura de
+ $X$
+ por elementos de
+ $\mathcal{C}$
+ tem uma subcobertura finita, então
+ $X$
+ é compacto.
+ \end{theorem}
+ 
+ % pensar em como fazer com filtros e sem
+ % lema de Zorn
+ 
+ % enxugar a demonstração com a do Matheus
+ % lá do fórum
+ 
+ % prova original enxugada
+ \begin{proof}
+ Suponha que 
+ $X$
+ não é compacto.
+ Seja
+ $\mathscr{F}$
+ a coleção de todas as coberturas abertas de
+ $X$
+ que não têm subcobertura finita.
+ Note que
+ $\mathscr{F} \neq \varnothing$
+ pois
+ $X$
+ não é compacto,
+ e que essa família é parcialmente ordenada
+ pela relação de inclusão.
+ Daí, o Lema de Zorn garante que existe
+ $\mathcal{M} \subseteq \mathscr{F}$
+ maximal (com respeito à relação de inclusão).
+ 
+ De fato, seja
+ \begin{equation*}
+     \mathscr{F}'
+     =
+     \setsuchthat{
+     \mathcal{F}_{\lambda}
+     }
+     {
+     \lambda \in \Lambda
+     } \subseteq \mathscr{F}
+ \end{equation*}
+ um conjunto totalmente ordenado. Defina
+ \begin{equation*}
+     \mathcal{F} 
+     = 
+     \bigcup_{\Lambda} \mathcal{F}_{\lambda}.
+ \end{equation*}
+ Temos que 
+ $\mathcal{F}$
+ é uma cota superior de 
+ $\mathscr{F}'$
+ pois contém todo
+ $\mathcal{F}_{\lambda}$
+ e também que
+ $\mathcal{F}$
+ é uma cobertura aberta de
+ $X$.
+ 
+ Se tivéssemos
+ $\mathcal{F} \notin \mathscr{F}'$,
+ então existiriam 
+ $F_1, \dots, F_n \in \mathcal{F}$
+ cobrindo 
+ $X$.
+ Ora, mas cada um dos
+ $F_j$ 
+ pertence a algum dos
+ $\mathcal{F}_{\lambda}$.
+ Digamos que
+ $F_j \in \mathcal{F}_{\lambda_j}$.
+ Como
+ $\mathscr{F}'$
+ é totalmente ordenado,
+ então
+ $\{ \mathcal{F}_{\lambda_1}, \dots, \mathcal{F}_{\lambda_n} \}$
+ também é.
+ Sem perda de generalidade, suponhamos que
+ $\mathcal{F}_{\lambda_n}$
+ contém todos os
+ $F_j$.
+ Ora, então
+ $\mathcal{F}_{\lambda_n}$
+ é um elemento de
+ $\mathscr{F}'$
+ que contém uma subcobertura finita, ou seja,
+ $\mathscr{F}'$
+ tem uma subcobertura finita de 
+ $X$, 
+ absurdo.
+ Portanto, 
+ $\mathcal{F} \in \mathscr{F}'$.
+ 
+ Seja 
+ $\mathcal{S} = \mathcal{M} \cap \mathcal{C}$
+ o conjunto dos abertos de
+ $\mathcal{M}$
+ que estão na sub-base.
+ Vamos mostrar que
+ $\mathcal{S}$
+ cobre
+ $X$,
+ o que implicará que
+ $\mathcal{M}$
+ deve conter uma subcobertura finita de
+ $X$,
+ já que
+ $\mathcal{S} \subset \mathcal{C}$
+ e
+ $\mathcal{S} \subseteq \mathcal{M}$,
+ e, daí, teremos a conclusão absurda de que
+ $\mathcal{M} \notin \mathscr{F}$,
+ concluindo então que 
+ $X$
+ é, de fato, compacto.
+ 
+ Suponhamos então que
+ $\mathcal{S}$
+ não cobre 
+ $X$.
+ Existe, então,
+ $x \in X \setminus \bigcup \mathcal{S}$.
+ Como
+ $\mathcal{M}$
+ cobre
+ $X$, 
+ existe
+ $U \in \mathcal{M}$
+ tal que
+ $x\in U$
+ e, como
+ $\mathcal{C}$
+ é sub-base, existem
+ $C_1, \dots, C_n \in \mathcal{C}$
+ tais que
+ $C = \displaystyle{\bigcap_{i}^n C_i } \subseteq U$.
+ Note que nenhum dos
+ $C_i$
+ está em
+ $\mathcal{M}$,
+ pois se um deles estivesse, teríamos
+ $x\in C \in \mathcal{M}$,
+ contrariando o fato de que 
+ $x$
+ não é coberto por 
+ $\mathcal{S}$.
+ 
+ Como 
+ $\mathcal{M}$
+ é maximal, segue que cada uma das coleções
+ $\mathcal{M} \cup \{ C_i \}$
+ possui subcobertura finita de
+ $X$.
+ Denote-a por
+ $\mathcal{M}_i \cup \{ C_i \}$,
+ sendo
+ $\mathcal{M}_i \subseteq \mathcal{M}$.
+ Temos, então, que
+ \begin{equation*}
+     \bigcup_i \mathcal{M}_i \cup \{ C \}
+ \end{equation*}
+ é uma cobertura aberta finita de 
+ $X$,
+ de modo que
+ \begin{equation*}
+     \bigcup_i \mathcal{M}_i \cup \{ U \}
+ \end{equation*}
+ também o é, já que
+ $C \subseteq U$.
+ Mas
+ $U \in \mathcal{M}$,
+ absurdo.
+ 
+ Portanto,
+ $\mathcal{S}$
+ deve cobrir 
+ $X$
+ e, consequentemente,
+ $X$
+ é compacto.
+ \end{proof}
+ 
+ % prova original
+%  \begin{proof}
+%  O argumento é por absurdo.
+%  Suponhamos que
+%  $X$
+%  não é compacto
+%  (de modo que $X$ é infinito),
+%  mas que toda cobertura sub básica por elementos de
+%  $\mathcal{S}$
+%  tem uma subcobertura finita.
+%  Denote por
+%  $\mathbb{S}$
+%  o conjunto de todas as coberturas abertas de 
+%  $X$
+%  que não têm subcobertura finita de
+%  $X$.
+%  Ordene 
+%  $\mathbb{S}$
+%  parcialmente usando a relação de inclusão de conjuntos e
+%  aplique o Lema de Zorn para encontrar um elemento
+%  $\mathscr{C} \in \mathbb{S}$
+%  maximal. 
+%  Note que
+%  \begin{enumerate}
+%      \item como
+%      $\mathscr{C} \in \mathbb{S}$,
+%      então por definição de
+%      $\mathbb{S}$
+%      temos que
+%      $\mathscr{C}$
+%      é uma cobertura aberta de
+%      $X$
+%      que não tem subcobertura finita de 
+%      $X$
+%      (isso implica, em particular, que $\mathscr{C}$ é infinito)
+     
+%      \item a maximalidade de
+%      $\mathscr{C}$
+%      em
+%      $\mathbb{S}$
+%      implica que se
+%      $V$
+%      é um aberto de
+%      $X$
+%      tal que
+%      $V \notin \mathscr{C}$,
+%      então
+%      $\mathscr{C} \cup \{ V \}$
+%      tem subcobertura finita, que deve necessariamente ser da forma
+%      $\{ V \} \cup \mathscr{C}_V$
+%      para algum subconjunto finito
+%      $\mathscr{C}_V$
+%      de
+%      $\mathscr{C}$.
+%      Como sugere a notação, esse subconjunto finito depende de
+%      $V$.
+%  \end{enumerate}
+%  Começaremos mostrando que
+%  $\mathscr{C} \cap \mathcal{S}$
+%  \textbf{não} cobre
+%  $X$.
+%  Suponhamos o contrário, o que implica, em particular, que
+%  $\mathscr{C} \cap \mathcal{S}$
+%  é uma cobertura de 
+%  $X$
+%  por elementos de
+%  $\mathcal{S}$.
+%  A hipótese do teorema em
+%  $\mathcal{S}$
+%  implica que existem um subconjunto finito de
+%  $\mathscr{C} \cap \mathcal{S}$
+%  que cobre
+%  $X$,
+%  que também é, simultaneamente, uma subcobertura finita de
+%  $X$
+%  por elementos de
+%  $\mathscr{C}$,
+%  já que
+%  $\mathscr{C} \cap \mathcal{S} \subseteq \mathscr{C}$.
+%  Mas isso contradiz o fato de que
+%  $\mathscr{C} \in \mathcal{S}$,
+%  provando que
+%  $\mathscr{C} \cap \mathcal{S}$
+%  não cobre 
+%  $X$.
+ 
+%  Como 
+%  $\mathscr{C} \cap \mathcal{S}$
+%  não cobre
+%  $X$,
+%  existe
+%  $x \in X$
+%  que não é coberto por
+%  $\mathscr{C} \cap \mathcal{S}$,
+%  ou seja, tal que
+%  $x$
+%  não pertence a nenhum elemento de
+%  $\mathscr{C} \cap \mathcal{S}$.
+%  Mas como
+%  $\mathscr{C}$
+%  cobre
+%  $X$,
+%  também existe
+%  $U \in \mathscr{C}$
+%  tal que
+%  $x \in U$.
+%  Como
+%  $\mathcal{S}$
+%  é uma sub base geradora da topologia de
+%  $X$,
+%  segue da definição de topologia gerada que
+%  existe uma coleção finita de abertos da sub base
+%  $S_1, \dots, S_n \in \mathcal{S}$
+%  tal que
+%  \begin{equation*}
+%      x \in S_1 \cap \cdots \cap S_n \subseteq U.
+%  \end{equation*}
+%  Agora, vamos mostrar por absurdo que
+%  $S_i \notin \mathscr{C}$
+%  para todo
+%  $i = 1, 2, \dots, n$.
+%  Se 
+%  $i$
+%  fosse tal que 
+%  $S_i \in \mathscr{C}$,
+%  então teríamos
+%  $S_i \in \mathscr{C} \cap \mathcal{S}$,
+%  de modo que
+%  $x \in S_i$
+%  implicaria que
+%  $x$
+%  é coberto por
+%  $\mathscr{C} \cap \mathcal{S}$,
+%  contradizendo a maneira como 
+%  $x$
+%  foi escolhido.
+ 
+%  Como mencionado anteriormente, a maximalidade de
+%  $\mathscr{C}$
+%  em
+%  $\mathcal{S}$
+%  implica que para todo
+%  $i = 1, 2, \dots, n$, 
+%  existe um subconjunto finito
+%  $\mathscr{C}_{S_i}$
+%  de
+%  $\mathscr{C}$
+%  tal que
+%  $\{ S_i \} \cup \mathscr{C}_{S_i}$
+%  é uma cobertura de 
+%  $X$.
+%  Defina
+%  \begin{equation*}
+%      \mathscr{C}_F 
+%      = 
+%      \mathscr{C}_{S_1} \cup \cdots \cup \mathscr{C}_{S_n},
+%  \end{equation*}
+%  que é um subconjunto finito de
+%  $\mathscr{C}$
+%  pois cada um dos
+%  $\mathscr{C}_{S_i}$
+%  o são. 
+%  Note que para cada
+%  $i = 1, 2, \dots, n$,
+%  a união
+%  $\{ S_i \} \cup \mathscr{C}_F$
+%  é uma cobertura finita de 
+%  $X$. 
+%  Portanto, trocaremos os
+%  $\mathscr{C}_{S_i}$
+%  por
+%  $\mathscr{C}_F$.
+ 
+%  Denote por
+%  $\bigcup \mathscr{C}_F$
+%  a união de todos os conjuntos em
+%  $\mathscr{C}_F$
+%  (que é um aberto de $X$)
+%  e denote
+%  $Z = X \setminus \bigcup \mathscr{C}_F$.
+%  Observe que para qualquer
+%  $A \subseteq X$, 
+%  temos que
+%  $\{ A \} \cup \bigcup \mathscr{C}_F$
+%  cobre
+%  $X$
+%  se, e somente se,
+%  $Z \subseteq A$.
+%  Em particular, para todo
+%  $i = 1, 2, \dots, n$,
+%  o fato de que
+%  $\{ S_i \} \cup \bigcup \mathscr{C}_F$
+%  cobre
+%  $X$
+%  implica que
+%  $Z \subseteq S_i$.
+%  Portanto,
+%  $Z \subseteq S_1 \cap \cdots \cap S_n$.
+%  Lembrando que
+%  $S_1 \cap \cdots \cap S_n \subseteq U$,
+%  temos
+%  $Z \subseteq U$,
+%  o que é equivalente a
+%  $\{ U \} \cup \bigcup \mathscr{C}_F$
+%  ser uma cobertura de
+%  $X$.
+%  Ademais, 
+%  $\{ U \} \cup \bigcup \mathscr{C}_F$
+%  é uma cobertura finita de 
+%  $X$
+%  tal que
+%  $\{ U \} \cup \bigcup \mathscr{C}_F \subseteq \mathscr{C}$.
+%  Portanto, 
+%  $\mathscr{C}$
+%  tem uma subcobertura finita de
+%  $X$,
+%  contradizendo o fato de que
+%  $\mathscr{C} \in \mathbb{S}.$
+%  Logo, a suposição inicial de que
+%  $X$
+%  não era compacto está incorreta, mostrando que
+%  $X$
+%  é compacto.
+%  \end{proof}
+ 
+ Note que a recíproca do teorema também vale:
+ se
+ $X$
+ é compacto e 
+ $\mathcal{S}$
+ é uma sub base de
+ $X$,
+ então toda cobertura de
+ $X$
+ por elementos de
+ $\mathcal{S}$
+ tem subcobertura finita.
+ Ela pode ser demonstrada tomando
+ $\mathcal{S} = \tau$
+ (já que toda topologia é sub base de si mesma).
+ 
+ Com esse teorema,
+ podemos demonstrar o Teorema \ref{teo:alexander}
+ de maneira alternativa, sem filtros, como segue.
+ 
+ \begin{proof}[Prova alternativa do Teorema \ref{teo:tychonoff}]
+ A topologia produto em
+ $X$
+ tem, por definição, uma sub base que consiste de
+ conjuntos ``cilindros'', que são as imagens inversas
+ pelas projeções de abertos em cada fator.
+ Dada uma família
+ $C$
+ de elementos da sub base de
+ $X$
+ que não tem subcobertura finita,
+ podemos particionar
+ $C = \displaystyle{ \bigcup_{\alpha} C_{\alpha} }$
+ em subfamílias que consistem exatamente dos conjuntos
+ cilindros correspondentes a um dado fator de
+ $X$.
+ Por hipótese, se
+ $C_{\alpha} \neq \varnothing$,
+ então
+ $C_{\alpha}$
+ não tem subcobertura finita.
+ Por serem conjuntos cilindros, isso significa que
+ suas projeções em
+ $X_{\alpha}$
+ não tem subcobertura finita, e como cada
+ $X_{\alpha}$
+ é compacto, podemos encontrar
+ $x_{\alpha} \in X_{\alpha}$
+ que não é coberto pelas projeções de
+ $C_{\alpha}$
+ em
+ $X_{\alpha}$.
+ Mas então
+ $(x_{\alpha})_{\alpha} \in \displaystyle{ \prod_{\alpha} X_{\alpha} }$
+ não é coberto por
+ $C$, 
+ absurdo.
+ \end{proof}

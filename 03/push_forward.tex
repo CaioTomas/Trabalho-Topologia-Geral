@@ -1,0 +1,293 @@
+\section{Ultrafiltros \textit{push forward}}
+\label{sec:push_forward}
+%Prop 3.1, Teo 3.2 ref
+
+ Nesta seção, introduzimos o \textit{push forward}
+ de um ultrafiltro e provamos dois resultados sobre ele.
+ \begin{proposition}
+ \label{prop:imag_ultrafiltro}
+ Sejam 
+ $f:X \to Y$
+ uma função qualquer entre conjuntos e
+ $\mathfrak{U}$
+ um ultrafiltro em $X$. Defina
+ \begin{equation*}
+     f_{*}(\mathfrak{U})
+     =
+     \setsuchthat{V \subseteq Y}{f^{-1}(V) \in \mathfrak{U}}.
+ \end{equation*}
+ Afirmamos que 
+ $f_{*}(\mathfrak{U})$
+ é um ultrafiltro em $Y$.
+ \end{proposition}
+ 
+ \begin{proof}
+ Como
+ $f^{-1}(\varnothing) = \varnothing \notin \mathfrak{U}$
+ e
+ $f^{-1}(Y) = X \in \mathfrak{U}$,
+ temos que
+ $\varnothing \notin f_*(\mathfrak{U})$
+ e
+ $Y \in f_*(\mathfrak{U})$.
+ Se 
+ $V_1, V_2 \in f_*(\mathfrak{U})$,
+ então
+ $f^{-1}(V_1 \cap V_2) = f^{-1}(V_1) \cap f^{-1}(V_2) \in \mathfrak{U}$,
+ de modo que
+ $V_1 \cap V_2 \in f_*(\mathfrak{U})$.
+ Ademais, se
+ $V_1 \in f_*(\mathfrak{U})$
+ e
+ $V_1 \subseteq V \subseteq Y$,
+ então
+ $f^{-1}(V) \supseteq f^{-1}(V_1) \in \mathfrak{U}$,
+ de modo que
+ $f^{-1}(V) \in \mathfrak{U}$
+ e
+ $V \in f_*(\mathfrak{U})$.
+ Portanto, 
+ $f_*(\mathfrak{U})$
+ é um filtro em 
+ $Y$. 
+ Por fim, se
+ $Y = Y_1 \sqcup Y_2$,
+ então
+ $X = f^{-1}(Y_1) \sqcup f^{-1}(Y_2)$,
+ logo
+ $f^{-1}(Y_i) \in \mathfrak{U}$
+ para exatamente um dos
+ $i$'s,
+ nos dando
+ $Y_i \in f_*(\mathfrak{U})$.
+ Portanto,
+ $f_*(\mathfrak{U})$
+ é, de fato, um ultrafiltro em
+ $Y$.
+ \end{proof}
+ 
+ O ultrafiltro
+ $f_*(\mathfrak{U})$ 
+ é o \textit{push forward} do ultrafiltro
+ $\mathfrak{U}$,
+ também chamado de \textbf{ultrafiltro imagem}.
+ Essencialmente, essa proposição nos diz que
+ imagem de ultrafiltro é também ultrafiltro 
+ (e, na verdade, é possível mostrar ainda que
+ imagem de filtro é também filtro).
+ Note que se
+ $f : X \to Y$
+ e
+ $g : Y \to Z$,
+ então
+ $(g \circ f)_*(\mathfrak{U}) = g_*(f_*(\mathfrak{U}))$
+ é um ultrafiltro em 
+ $Z$.
+ A regra
+ $(g \circ f)_* = g_* \circ f_*$
+ é característica de mapas ``\textit{push forward}''.
+ No caso de \textit{pullbacks}, a regra é
+ $(g \circ f)^* = f^* \circ g^*$.
+ 
+ \begin{theorem}
+ \label{teo:3.2}
+ Sejam 
+ $(X, \tau_X), (Y, \tau_Y)$
+ espaços topológicos e considere
+ $f:X \to Y$
+ qualquer. Afirmamos que
+ $f$ é contínua se, e só se,
+ $f_{*}(\mathfrak{U}) \to f(x)$
+ em $Y$ para todo ultrafiltro
+ $\mathfrak{U} \to x$ 
+ em $X$.
+ \end{theorem}
+ 
+ \begin{proof}
+ Suponha que 
+ $f$
+ é contínua e seja
+ $\mathfrak{U}$
+ um ultrafiltro em 
+ $X$
+ tal que
+ $\mathfrak{U} \to x$.
+ Para toda vizinhança aberta
+ $V \subseteq Y$
+ de
+ $f(x)$,
+ o conjunto
+ $f^{-1}(V) \subseteq X$
+ é uma vizinhança aberta de
+ $x$.
+ Temos
+ $f^{-1}(V) \in \mathfrak{U}$
+ e, portanto,
+ $V \in f_*(\mathfrak{U})$,
+ de modo que
+ $f_*(\mathfrak{U}) \to f(x)$
+ por definição.
+ 
+ Reciprocamente, suponha que
+ $f_*(\mathfrak{U}) \to f(x)$
+ em 
+ $Y$
+ sempre que
+ $\mathfrak{U}$
+ é um ultrafiltro em
+ $X$
+ convergindo para
+ $x$.
+ Seja
+ $V \subseteq Y$
+ aberto.
+ Para mostrar que a pré-imagem
+ $f^{-1}(V) \subseteq X$
+ é aberta, usaremos o Teorema \ref{teo:2.2}.
+ Seja
+ $\mathfrak{U}$
+ um ultrafiltro qualquer em
+ $X$
+ convergindo para algum ponto
+ $x \in f^{-1}(V)$.
+ Por hipótese, 
+ $f_*(\mathfrak{U}) \to f(x)$
+ em
+ $Y$.
+ Como
+ $V \subseteq Y$
+ é uma vizinhança aberta de
+ $f(x)$,
+ temos
+ $V \in f_*(\mathfrak{U})$,
+ ou seja,
+ $f^{-1}(V) \in \mathfrak{U}$.
+ Pelo Teorema \ref{teo:2.2},
+ $f^{-1}(V)$
+ é aberto e, portanto,
+ $f$
+ é contínua.
+ \end{proof}
+ 
+ O Teorema \ref{teo:3.2} suscita uma comparação entre
+ ultrafiltros e sequências.
+ Recorde que para uma função contínua
+ $f : X \to Y$,
+ temos
+ $f(x_n) \to f(x)$
+ em
+ $Y$
+ sempre que
+ $x_n \to x$
+ em 
+ $X$.
+ A recíproca não vale sem que adicionemos algumas hipóteses 
+ (por exemplo, que $X$ seja espaço métrico).
+ Sequências da forma
+ $x_1, x_2, x_3, \dots$
+ são limitadas no sentido de que elas são, por definição, enumeráveis.
+ Ultrafiltros, que não possuem tal restrição, são suficientes para 
+ caracterizar topologias e continuidade em geral.
+ 
+ %falar de filtros gerados
+ \begin{theorem}[Filtros gerados]
+ 
+ \todo{Eu pesquisei e coloquei esse teorema
+ sobre filtros gerados, prof, mas não pensei
+ ainda como ele poderia simplificar as coisas.}
+ 
+ Sejam
+ $X$
+ um conjunto e
+ $\mathcal{B} \subset \powerset X$.
+ Temos que
+ \begin{equation*}
+     \mathfrak{F}
+     =
+     \setsuchthat{V \subseteq X}{\exists U \in \mathcal{B}, U \subseteq V}
+ \end{equation*}
+ é um filtro em 
+ $X$
+ se, e somente se,
+ \begin{enumerate}
+     \item $\forall V_1, V_2 \in \mathcal{B}, \exists U \in \mathcal{B} : U \subseteq V_1 \cap V_2$;
+     \item $\varnothing \notin \mathcal{B}$;
+     \item $\mathcal{B} \neq \varnothing$.
+ \end{enumerate}
+ Nesse caso, 
+ $\mathcal{B}$
+ é uma \textbf{base para o filtro}
+ $\mathfrak{F}$,
+ que é dito \textbf{gerado} por
+ $\mathcal{B}$.
+ \end{theorem}
+ 
+ % demonstração de
+ % https://proofwiki.org/wiki/Filter_Basis_Generates_Filter
+ \begin{proof}
+ Assumamos primeiro que
+ $\mathfrak{F}$
+ é um filtro em
+ $X$.
+ Temos então
+ $X \in \mathfrak{F}$
+ e, portanto,
+ $\mathcal{B} \neq \varnothing$.
+ Ademais, como
+ $\varnothing \notin \mathfrak{F}$,
+ temos que
+ $\varnothing \notin \mathcal{B}$
+ já que
+ $\mathcal{B} \subseteq \mathfrak{F}$.
+ Agora, sejam
+ $V_1, V_2 \in \mathcal{B}$.
+ Então 
+ $V_1, V_2 \in \mathfrak{F}$
+ e, portanto,
+ $V = V_1 \cap V_2 \in \mathfrak{F}$
+ já que 
+ $\mathfrak{F}$
+ é um filtro.
+ A definição de
+ $\mathfrak{F}$
+ implica, então, que existe
+ $U \subseteq \mathcal{B}$
+ tal que 
+ $U \subseteq V = V_1 \cap V_2$.
+ 
+ Agora, assumamos que 
+ $\mathcal{B}$
+ satisfaz as três condições do enunciado.
+ Para mostrar que 
+ $\mathfrak{F}$
+ é um filtro, note que como
+ $\mathcal{B} \neq \varnothing$
+ então existe 
+ $B \in \mathcal{B}$.
+ Como 
+ $\mathcal{B} \subseteq \powerset X$,
+ então
+ $B \subseteq X$
+ e daí, por definição de filtro,
+ $X \in \mathfrak{F}$.
+ Ademais, como
+ $\varnothing \notin \mathcal{B}$,
+ segue que
+ $\varnothing \notin \mathfrak{F}$.
+ Por fim, sejam
+ $V_1, V_2 \in \mathfrak{F}$.
+ Existem 
+ $U_1, U_2 \in \mathcal{B}$
+ tais que
+ $U_1 \subseteq V_1$
+ e
+ $U_2 \subseteq V_2$.
+ Além disso, existe
+ $U \in \mathcal{B}$
+ tal que
+ $U \subseteq U_1 \cap U_2$,
+ donde segue que
+ $U \subseteq V_1 \cap V_2$
+ e, portanto,
+ $V_1 \cap V_2 \in \mathfrak{F}$.
+ \end{proof}

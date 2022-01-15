@@ -1,0 +1,377 @@
+\section{Espaços produto com ultrafiltros}
+\label{sec:esp_produto}
+% Seção 4 ref
+ %talvez tirar essa seção
+ 
+ \todo{Eu lembro que o senhor disse que não
+ precisava dessa seção, mas eu acho que seria
+ legal se ela ficasse.
+ Me ajudou a entender mais intuitivamente
+ a topologia produto, e tem o Teorema 3.3.2
+ que eu usei na demonstração do Tychonoff
+ (tem um comentário sobre isso lá na demonstração).}
+ 
+ Seja 
+ $X_{\alpha}$
+ uma família de espaços topológicos indexados por
+ $\alpha \in A$.
+ O \textbf{espaço produto}
+ $X = \displaystyle{ \prod_{\alpha \in A} X_{\alpha} }$
+ tem pontos da forma
+ $x = (x_{\alpha})_{\alpha}$,
+ sendo 
+ $x_{\alpha} \in X_{\alpha}, \forall \alpha \in A.$
+ Descreveremos a seguir a topologia natural neste conjunto,
+ imposta pelas topologias individuais nos espaços
+ $X_{\alpha}$.
+ Antes, contudo, vamos deixar claro o que queremos dizer por um ponto
+ $(x_{\alpha})_{\alpha}$.
+ 
+ No caso de
+ $|A| = n < \infty$,
+ podemos tomar, sem perda de generalidade,
+ $A = \{ 0, 1, 2, \dots, n-1 \}$.
+ Nesse caso,
+ \begin{equation*}
+     X 
+     = 
+     X_0 \times X_1 \times \cdots \times X_{n-1}
+     =
+     \setsuchthat{ (x_0, x_1, \dots, x_{n-1}) }{ x_i \in X_i \forall i \in A }.
+ \end{equation*}
+ No caso particular em que
+ $X_0 = X_1 = \cdots = X_{n-1}$,
+ obtemos
+ \begin{equation*}
+     X 
+     = 
+     \underbrace{ X_0 \times X_0 \times \cdots \times X_0 }_{n \text{ vezes}}
+     =
+     X_0^n.
+ \end{equation*}
+ Todo ponto
+ $x = (x_0, x_1, \dots, x_{n-1}) \in X$
+ pode então ser visto como uma função
+ $f: A \to X_0$.
+ 
+ Prosseguindo para produtos enumeráveis,
+ vamos usar
+ $\omega = \{ 0, 1, 2, \dots \}$
+ como nosso conjunto de índices.
+ Agora, temos um produto enumerável de conjuntos dado por
+ \begin{equation*}
+     X
+     =
+     \prod_{i \in \omega} X_i
+     =
+     X_0 \times X_1 \times X_2 \times \cdots
+     =
+     \setsuchthat{ (x_0, x_1, x_2, \dots) }{ x_i \in X_i \forall i \in \omega }.
+ \end{equation*}
+ Aqui, cada ponto
+ $x \in X$
+ é uma sequência infinita,
+ identificada com a correspondência
+ $i \mapsto x_i$.
+ Como casos especiais em que todos os espaços da família são iguais, 
+ temos
+ \begin{equation*}
+     \reals^{\omega}
+     =
+     \reals \times \reals \times \reals \times \cdots,
+ \end{equation*}
+ o conjunto de todas as sequências infinitas enumeráveis de números reais,
+ e
+ \begin{equation*}
+     2^{\omega}
+     =
+     \{ 0,1 \}^{\omega}
+     =
+     \{ 0,1 \} \times \{ 0,1 \} \times \{ 0,1 \} \times \cdots,
+ \end{equation*}
+ o conjunto de todas as sequências binárias infinitas enumeráveis.
+ 
+ Para um conjunto $A$ de cardinalidade arbitrária,
+ o produto geral
+ $X = \displaystyle{ \prod_{\alpha \in A} X_{\alpha} }$
+ pode ser pensado como o conjunto de todas as funções definidas em
+ $A$
+ que levam
+ $\alpha \mapsto x_{\alpha} \in X_{\alpha}$
+ para cada
+ $\alpha \in A.$
+ Podemos denotar os pontos por 
+ $x = (x_{\alpha})_{\alpha \in A}$.
+ Novamente considerando o caso particular em que todos os
+ $X_{\alpha}$'s
+ são iguais a um mesmo espaço
+ $X_0$,
+ temos
+ \begin{equation*}
+     X
+     =
+     X_0^A
+     =
+     \{ \text{funções } A \to X_0 \}.
+ \end{equation*}
+ Por exemplo, o conjunto
+ $\reals^{\reals}$
+ é simplesmente o conjunto de todas as funções
+ $\reals \to \reals$.
+ 
+ Todo espaço produto
+ $X = \displaystyle{ \prod_{\alpha \in A} X_{\alpha} }$
+ vem naturalmente equipado com projeções nos vários fatores;
+ elas são as sobrejeções dadas por
+ \begin{equation*}
+     \functionarray{\pi_{\alpha}}{X}{X_{\alpha}}{x}{x_{\alpha}}.
+ \end{equation*}
+ Pensando em um ponto
+ $x \in X$
+ como uma função, a $\alpha$-ésima coordenada
+ $\pi_{\alpha}(x) = x_{\alpha}$
+ é simplesmente o valor daquela função no \textit{input}
+ $\alpha \in A$.
+ 
+ A partir daí, a topologia natural que mencionamos para o espaço produto
+ é a chamada \textbf{topologia produto}, que é a topologia mais fraca
+ na qual cada uma das projeções
+ $\pi_{\alpha} : X \to X_{\alpha}$
+ é contínua. 
+ Equivalentemente, uma base para a topologia produto em 
+ $X$
+ é a coleção de abertos da forma
+ \begin{equation*}
+     \prod_{\alpha \in A} U_{\alpha}
+ \end{equation*}
+ onde cada
+ $U_{\alpha} \subseteq X_{\alpha}$
+ é aberto e
+ $U_{\alpha} \neq X_{\alpha}$
+ para um número finito de índices.
+ 
+ Por outro lado, a \textbf{topologia caixa}
+ \footnote{Tradução literal do termo em inglês \textit{box topology}.}
+ no espaço produto 
+ $X$
+ é a topologia cuja base consiste de todos os conjuntos da forma
+ \begin{equation*}
+     \prod_{\alpha \in A} U_{\alpha}
+ \end{equation*}
+ onde
+ $U_{\alpha} \subseteq X_{\alpha}$
+ apenas.
+ Se $|A| < \infty$, então as duas topologias coincidem.
+ Entretanto, em geral a topologia caixa é mais forte que a topologia produto
+ (em geral forte demais para ser útil).
+ A menos que seja especificado, 
+ tomaremos a topologia produto para o espaço produto $X$.
+ 
+ Como um exemplo, considere a sequência de pontos
+ $v_1, v_2, v_3, \dots \in [0,1]^{\omega}$
+ dada por
+ \begin{align*}
+     v_1 &= (0, 1, 1, 1, 1, 1, \dots), \\
+     v_2 &= (0, 0, 1, 1, 1, 1, \dots), \\
+     v_3 &= (0, 0, 0, 1, 1, 1, \dots), \\
+     v_4 &= (0, 0, 0, 0, 1, 1, \dots),
+ \end{align*}
+ e assim por diante. É natural supor que
+ $v_n$
+ converge para o ponto
+ $\mathbf{0} = (0,0,0,0,0,0,\dots)$
+ em
+ $[0,1]^{\omega}$,
+ e isso de fato é verdade na topologia produto:
+ uma vizinhança aberta de 
+ $\mathbf{0}$ 
+ nessa topologia tem a forma
+ \begin{equation*}
+     U
+     =
+     U_0 \times U_1 \times U_2 \times \cdots \times U_{m-1} 
+     \times [0,1] \times [0,1] \times [0,1] \times \cdots,
+ \end{equation*}
+ em que cada
+ $U_i$
+ é uma vizinhança aberta de
+ $0$.
+ Como
+ $v_n \in U$
+ sempre que 
+ $n \geq m$,
+ temos
+ $v_n \to \mathbf{0}$.
+ Na topologia caixa, por outro lado, a sequência
+ $v_n$
+ não converge: considere por exemplo a vizinhança
+ \begin{equation*}
+     U'
+     =
+     [0, 1/2] \times [0, 1/2] \times [0, 1/2] \times [0, 1/2] \times \cdots,
+ \end{equation*}
+ uma vizinhança aberta de
+ $\mathbf{0}$
+ na topologia caixa.
+ Note que
+ $v_n$
+ nunca entra em
+ $U'$,
+ não importa quão grande seja
+ $n$.
+ Uma primeira justificativa para a não convergência seria que
+ as coordenadas de
+ $v_n$
+ convergem ``pontualmente'', e não ``uniformemente'', para 
+ $0$.
+ Contudo, o problema na verdade é pior:
+ considere a sequência
+ \begin{align*}
+     w_1 &= (0, 1, 1, 1, 1, 1, \dots), \\
+     w_2 &= (0, 0, 1/2, 1/2, 1/2, 1/2, \dots), \\
+     w_3 &= (0, 0, 0, 1/4, 1/4, 1/4, \dots), \\
+     w_4 &= (0, 0, 0, 0, 1/8, 1/8, \dots),
+ \end{align*}
+ e assim por diante,
+ que converge para
+ $\mathbf{0}$
+ na topologia produto.
+ As coordenadas convergem ``uniformemente'' para 0,
+ e o fazem razoavelmente rápido,
+ mas
+ $w_n$
+ nunca entra em 
+ \begin{equation*}
+     [0,1] \times [0,1/2] \times [0,1/3] \times [0,1/5] \times [0,1/9] \times \cdots,
+ \end{equation*}
+ logo
+ $w_n \not\to \mathbf{0}$
+ na topologia caixa.
+ Essa topologia contém abertos demais, i.e.,
+ está muito próxima da topologia discreta para nos ser de grande utilidade.
+ 
+ Generalizando os exemplos acima,
+ vemos que uma sequência de pontos de
+ $X = \displaystyle{ \prod_{\alpha \in A} X_{\alpha} }$
+ converge se, e somente se, convergir ``coordenada a coordenada'':
+ 
+ \begin{theorem}
+ \label{teo:4.1}
+ Seja 
+ $x_n = (x_{n, \alpha})_{\alpha}$
+ uma sequência de pontos em 
+ $X = \displaystyle{ \prod_{\alpha} X_{\alpha}}$.
+ Seja também 
+ $a = (a_{\alpha})_{\alpha} \in X$.
+ Então
+ $x_n \to a$
+ em $X$ se, e somente se,
+ $x_{n, \alpha} \to a_{\alpha}$
+ para todo $\alpha$ quando $n \to \infty$.
+ \end{theorem}
+ 
+ \begin{proof}
+ Suponha primeiramente que 
+ $x_n \to a$.
+ Como cada projeção
+ $\pi_{\alpha}$
+ é contínua, isso implica que
+ $x_{n, \alpha} = \pi(x_n) \to \pi_{\alpha}(a) = a_{\alpha}$
+ para todo $\alpha$.
+ 
+ Para mostrar a recíproca, basta considerarmos uma vizinhança aberta
+ $U$
+ de 
+ $a \in X$.
+ Esse conjunto tem a forma
+ $\displaystyle{ \prod_{\alpha} U_{\alpha} }$,
+ sendo cada
+ $U_{\alpha}$
+ uma vizinhança aberta de
+ $a_{\alpha} \in X_{\alpha}$
+ e
+ $U_{\alpha} = X_{\alpha}$
+ para todo 
+ $\alpha \notin \{ \alpha_1, \alpha_2, \dots, \alpha_m \}$.
+ Sob a hipótese de que
+ $x_{\alpha, n} \to a_{\alpha}$
+ para todo
+ $\alpha \in A$,
+ existem constantes
+ $N_1, N_2, \dots, N_m$
+ tais que para todo
+ $i \in \{ 1, 2, \dots, m \}$
+ temos
+ $x_{n, \alpha_i} \in U_{\alpha_i}$
+ sempre que
+ $n > N_i$.
+ Seja
+ $N = \max\{ N_1, \dots, N_m \}$.
+ Para todo
+ $n > N$
+ e para todo
+ $\alpha \in A$,
+ temos
+ $x_{n, \alpha} \in U_{\alpha}$:
+ se
+ $\alpha \in \{ \alpha_1, \dots, \alpha_m \}$,
+ esse fato segue da escolha de 
+ $n > N \geq N_i$;
+ do contrário, esse fato segue simplesmente porque
+ $x_{\alpha} \in U_{\alpha} = X_{\alpha}$.
+ \end{proof}
+ 
+ A topologia produto também pode ser caracterizada 
+ utilizando ultrafiltros, como mostra o teorema a seguir.
+ 
+ \begin{theorem}
+ \label{teo:4.2}
+ Sejam
+ $\mathfrak{U}$
+ um ultrafiltro em
+ $X = \displaystyle{ \prod_{\alpha} X_{\alpha}}$
+ e
+ $x = (x_{\alpha})_{\alpha} \in X$.
+ Então
+ $\mathfrak{U} \to x$
+ se, e somente se
+ $(\pi_{\alpha})_{*}(\mathfrak{U}) \to x_{\alpha}$
+ em cada $X_{\alpha}$.
+ \end{theorem}
+ 
+ \begin{proof}
+ Se
+ $\mathfrak{U} \to x$,
+ então pelo Teorema \ref{teo:3.2} para cada
+ $\alpha \in A$
+ temos
+ $(\pi_{\alpha})_*(\mathfrak{U}) \to x_{\alpha}$.
+ 
+ Reciprocamente, suponha que para cada
+ $\alpha \in A$
+ temos
+ $(\pi_{\alpha})_*(\mathfrak{U}) \to x_{\alpha}$.
+ Seja
+ $u \subseteq X$
+ uma vizinhança aberta de
+ $x$.
+ Devemos mostrar que 
+ $U \in \mathfrak{U}.$
+ Para isso, basta considerar abertos da sub base da forma
+ $U = \pi_{\alpha}^{-1}(U_{\alpha})$
+ onde cada
+ $U_{\alpha} \subseteq X_{\alpha}$
+ é uma vizinhança aberta de
+ $x_{\alpha}$.
+ Nesse caso,
+ $U_{\alpha} \in (\pi_{\alpha})_*(\mathfrak{U})$,
+ de modo que
+ $U = \pi_{\alpha}^{-1}(U_{\alpha}) \in \mathfrak{U}$
+ como desejado.
+ Como $\mathfrak{U}$ é fechado por interseções finitas 
+ e para a operação de contém, esse resultado vale para
+ uma vizinhança aberta arbitrária de
+ $x$,
+ nos dando
+ $\mathfrak{U} \to x$.
+ \end{proof}

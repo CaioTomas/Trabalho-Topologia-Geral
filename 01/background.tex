@@ -1,0 +1,286 @@
+\section{Background}
+ 
+ Nesta subseção fornecemos as definições e noções básicas
+ para a compreensão do texto, baseadas em \cite{caldas}.
+ 
+ \begin{definition}[Espaço topológico]
+ Seja
+ $X$
+ um conjunto qualquer.
+ Dizemos que uma família
+ $\tau_X \subset \parts X$
+ define uma \textbf{topologia} em
+ $X$,
+ ou que
+ $(X, \tau_X)$
+ é um \textbf{espaço topológico}, quando
+ $\tau_X$
+ satisfaz:
+ \begin{enumerate}
+     \item $\varnothing, X \in \tau_X$;
+     \item $A, B \in \tau_X \implies A \cap B \in \tau_X$ (fechado por interseção finita);
+     \item $A_{\lambda} \in \tau_X, \lambda \in \Lambda 
+     \implies \displaystyle{ \bigcup_{\lambda \in \Lambda} A_{\lambda} \in \tau_X }$ (fechado por união arbitrária).
+ \end{enumerate}
+ Os subconjuntos
+ $A \subset X$
+ tais que
+ $A \in \tau_X$
+ são chamados de \textbf{abertos} do espaço topológico
+ $(X, \tau_X)$.
+ Quando conveniente, por abuso de notação, diremos que
+ $X$
+ é um espaço topológico.
+ \end{definition}
+ 
+ \begin{definition}[Vizinhanças]
+ Seja
+ $(X, \tau_X)$
+ um espaço topológico.
+ Dado
+ $x \in X$,
+ uma \textbf{vizinhança aberta} de
+ $x$
+ é um aberto 
+ $A \in \tau_X$
+ que contém o ponto 
+ $x$.
+ Uma \textbf{vizinhança} de
+ $x$
+ é qualquer conjunto que contenha uma 
+ vizinhança aberta de
+ $x$.
+ Denotamos por
+ $\mathcal{V}(x)$
+ a família de todas as vizinhanças de
+ $x$.
+ \end{definition}
+ 
+ \begin{definition}[Fecho]
+ Seja
+ $(X, \tau_X)$
+ um espaço topológico e
+ $B \subset X$
+ um subconjunto qualquer de
+ $X$.
+ Definimos o \textbf{fecho} de
+ $B$, 
+ denotado por
+ $\closure B$,
+ o conjunto
+ \begin{equation*}
+     \closure B
+     =
+     \setsuchthat{ x \in X }{ \forall V \in \mathcal{V}(x), V \cap B \neq \varnothing }.
+ \end{equation*}
+ Também escrevemos
+ $\closureop (B)$
+ ou, quando queremos enfatizar a topologia,
+ $\closureop_{\tau_X}(B)$.
+ \end{definition}
+ 
+ \begin{definition}[Interior]
+ Seja 
+ $(X, \tau_X)$
+ um espaço topológico e
+ $B \subset X$
+ um subconjunto qualquer de 
+ $X$.
+ O \textbf{interior} de 
+ $B$
+ é o maior conjunto aberto contido em
+ $B$.
+ Denotamos o interior de
+ $B$
+ por 
+ $\interior B$
+ ou ainda
+ $\interiorop_{\tau_X}(B)$
+ quando queremos dar ênfase ao fato de que o interior é tomado
+ em relação à topologia
+ $\tau_X$.
+ \end{definition}
+ 
+ \begin{definition}
+ Se
+ $\tau_1, \tau_2$
+ são duas topologias em um mesmo conjunto
+ $X$
+ e
+ $\tau_1 \subset \tau_2$,
+ então dizemos que
+ $\tau_2$
+ é \textbf{mais forte} ou \textbf{mais fina} que
+ $\tau_1$.
+ Dizemos também que
+ $\tau_1$
+ é \textbf{mais fraca} que
+ $\tau_2$.
+ \end{definition}
+ 
+ \begin{obs}
+ A relação ``mais forte que'' define uma ordem parcial
+ na família
+ \begin{equation*}
+     \mathcal{T}(X)
+     =
+     \setsuchthat{ \tau_X \subset \parts X }{ \tau_X \text{ é topologia} },
+ \end{equation*}
+ ou seja, a família das topologias em um conjunto
+ $X$.
+ 
+ Existe um elemento máximo dentre todas as topologias de 
+ $X$:
+ o conjunto das partes de
+ $X$,
+ que é a topologia mais forte que pode ser definida em
+ $X$. 
+ Por outro lado, 
+ $\{ \varnothing, X \}$
+ é a topologia mais fraca que pode ser definida em 
+ $X$.
+ 
+ É possível mostrar que a interseção
+ $\tau_{\delta}$
+ de uma família arbitrária
+ $\tau_{\lambda}$
+ de topologias é também uma topologia, e é a 
+ \textbf{maior topologia que é menor que todas} as
+ $\tau_{\lambda}$.
+ A topologia 
+ $\tau_{\delta}$
+ é o \textbf{ínfimo} das
+ $\tau_{\lambda}$.
+ Escrevemos
+ \begin{equation*}
+     t_{\delta} 
+     =
+     \bigwedge \setsuchthat{ \tau_{\lambda} }{ \lambda \in \Lambda }
+ \end{equation*}
+ ou
+ \begin{equation*}
+     t_{\delta} 
+     =
+     \bigwedge_{\lambda \in \Lambda} \tau_{\lambda}.
+ \end{equation*}
+ Por outro lado, a união arbitrária de topologias nem sempre é uma topologia.
+ Não obstante, se considerarmos a família
+ \begin{equation*}
+     \mathcal{F}
+     =
+     \setsuchthat{ \tau_X \in \mathcal{T}(X) }{ \bigcup_{\lambda \in \Lambda} \tau_{\lambda} \subset \tau_X },
+ \end{equation*}
+ ou seja, a família de todas as topologias que são
+ maiores que todas as 
+ $\tau_{\lambda}$,
+ sabemos que
+ $\mathcal{F} \neq \varnothing$,
+ pois 
+ $\parts X \in \mathcal{F}$.
+ Seja então
+ $\tau_{\sigma}$
+ o ínfimo de
+ $\mathcal{F}$:
+ \begin{equation*}
+     \tau_{\sigma}
+     =
+     \bigwedge \mathcal{F}.
+ \end{equation*}
+ A topologia
+ $\tau_{\sigma}$
+ é a menor topologia que é maior que é
+ maior que todas as
+ $\tau_{\lambda}$.
+ Essa topologia é o supremo das
+ $\tau_{\lambda}$,
+ denotada por
+ \begin{equation*}
+     \tau_{\sigma}
+     =
+     \bigvee_{\lambda \in \Lambda} \tau_{\lambda}.
+ \end{equation*}
+ \end{obs}
+ 
+ \begin{definition}[Topologia gerada]
+ Sejam 
+ $X$
+ um conjunto qualquer e
+ $\mathcal{C} \subset \parts X$
+ uma família qualquer de subconjuntos de
+ $X$.
+ A topologia
+ \begin{equation*}
+     \tau(\mathcal{C}) = \bigvee_{\mathcal{C} \subset \tau_X} \tau_X
+ \end{equation*}
+ é a topologia gerada por 
+ $\mathcal{C}$.
+ Esas é a menor topologia de
+ $X$
+ que contém a família
+ $\mathcal{C}$.
+ \end{definition}
+ 
+ \begin{definition}[Base]
+ Seja
+ $(X, \tau_X)$
+ um espaço topológico.
+ Uma família
+ $\mathcal{B} \subset \tau_X$
+ é uma \textbf{base} para a topologia
+ $\tau_X$
+ quando todo conjunto
+ $A \in \tau_X$
+ puder ser escrito como união de elementos de
+ $\mathcal{B}$.
+ Aqui seguimos a convenção de que
+ \begin{equation*}
+     \bigcup_{A \in \varnothing} A = \varnothing.
+ \end{equation*}
+ \end{definition}
+ 
+ \begin{definition}[Sub-base]
+ Seja
+ $(X, \tau_X)$
+ um espaço topológico. 
+ Uma família
+ $\mathcal{B}$
+ de elementos de
+ $\tau_X$
+ é uma \textbf{sub-base} da topologia se
+ $\mathcal{B}$
+ gera 
+ $\tau_X$, 
+ ou seja,
+ se
+ $\tau_X$
+ é a menor topologia contendo
+ $\mathcal{B}$:
+ qualquer topologia
+ $\tau_X'$
+ em 
+ $X$
+ contendo
+ $\mathcal{B}$
+ deve conter
+ $\tau_X$
+ também.
+ \end{definition}
+ 
+ \begin{definition}[Propriedade de interseção finita]
+ Sejam
+ $X$
+ um conjunto e
+ $\mathcal{A} = \{A_i\}_{i\in I}$
+ uma família não vazia de subconjuntos de
+ $X$
+ indexada por 
+ $I$.
+ Dizemos que
+ $\mathcal{A}$
+ tem a \textbf{propriedade de interseção finita}
+ se
+ $\displaystyle{ \bigcap _{i\in J}A_{i} }$
+ é não vazia para todo
+ $J \subseteq I$
+ não vazio.
+ \end{definition}

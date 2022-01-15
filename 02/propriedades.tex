@@ -1,0 +1,288 @@
+\section{Definições e propriedades básicas}
+\label{sec:propriedades}
+
+ \todo{Nessa seção eu acrescentei as propriedades
+ que o senhor havia mencionado e mudei a
+ definição de ultrafiltro, prof.
+ Além disso, para mostrar que toda família
+ com a propriedade da interseção finita
+ está em um ultrafiltro eu mostrei primeiro
+ o Lema do Ultrafiltro.}
+
+ %Podemos dar uma definição alternativa de vizinhanças
+ %baseada na operação de interior.
+
+%  \begin{definition}[Vizinhanças]
+%  Dado um conjunto $X$ e $a \in X$, dizemos que 
+%  $\mathcal{V}(a)$ 
+%  é um conjunto de vizinhanças de $a$ se
+ 
+%  \begin{enumerate}
+%      \item $V \in \mathcal{V}(a) \implies a\in V$;
+%      \item $V\in \mathcal{V}(a),
+%      V \subset W \implies W \in \mathcal{V}(a)$;
+%      \item $X \in \mathcal{V}(a)$;
+%      \item $V, W \in \mathcal{V}(a) 
+%      \implies V \cap W \in \mathcal{V}(a)$;
+%      \item $V \in \mathcal{V}(a) 
+%      \implies \interiorop (V) \in \mathcal{V}(a)$.
+%  \end{enumerate}
+ 
+%  \end{definition}
+
+ Uma primeira observação interessante de se fazer
+ é que a família de vizinhanças de 
+ $a \in X$,
+ $\mathcal{V}(a)$,
+ é um filtro que tem
+ $\tau (a)$
+ como base, como mostraremos mais à frente.
+
+ \begin{definition}[Filtro]
+ Dado um conjunto $X$, dizemos que 
+ $\mathfrak{F} \subset \powerset X$ 
+ é um \textbf{filtro} em $X$ 
+ se as seguintes propriedades são satisfeitas:
+
+ \begin{enumerate}
+    \item $\mathfrak{F} \neq \varnothing$;
+    \item $\varnothing \notin \mathfrak{F}$;
+    \item $V, W \in \mathfrak{F} 
+    \implies V\cap W \in \mathfrak{F}$;
+    \item $V \in \mathfrak{F}, V \subset W
+    \implies W \in \mathfrak{F}$.
+ \end{enumerate}
+
+ \end{definition}
+ 
+ \begin{proposition}
+ O conjunto das vizinhanças de $a\in X$ é um filtro.
+ \end{proposition}
+ 
+ \begin{proof}
+ Por definição, 
+ $X \in \mathcal{V}(a)$,
+ de modo que 
+ $\mathcal{V}(a) \neq \varnothing$.
+ Ademais, como
+ $a\in V, \forall V \in \mathcal{V}(a)$,
+ então nenhum elemento de 
+ $\mathcal{V}(a)$
+ é vazio, ou seja,
+ $\varnothing \notin \mathcal{V}(a)$.
+ A terceira e quarta propriedades dos filtros seguem
+ diretamente da quarta e da segunda propriedade das
+ vizinhanças, respectivamente.
+ \end{proof}
+ 
+ É importante notar que
+ 
+ \begin{proposition}
+ Dois conjuntos disjuntos não podem estar
+ no mesmo filtro.
+ \end{proposition}
+ 
+ \begin{proof}
+ Sejam 
+ $A, B \subset X$
+ disjuntos e
+ $\mathfrak{F}$
+ um filtro em 
+ $X$.
+ Suponha que
+ $A, B \in \mathfrak{F}$.
+ Ora, então por definição teríamos
+ $A \cap B = \varnothing \in \mathfrak{F}$,
+ absurdo.
+ \end{proof}
+ 
+ Consequentemente, como a definição a seguir mostrará,
+ também não podemos ter conjuntos disjuntos no mesmo
+ ultrafiltro.
+ 
+ \begin{definition}[Ultrafiltro]
+ Um \textbf{ultrafiltro} em
+ $X$
+ é um filtro
+ $\mathfrak{U}$
+ tal que os únicos filtros que o contêm são
+ $\powerset X$
+ e
+ $\mathfrak{U}$.
+ Dito de outro modo, um ultrafiltro é
+ um \textbf{filtro maximal}.
+ \end{definition}
+ 
+ Usando a proposição anterior,
+ uma maneira alternativa de enunciar a maximalidade,
+ que nos dá uma outra definição clássica de ultrafiltro é
+ ``um ultrafiltro em 
+ $X$
+ é um filtro
+ $\mathfrak{U}$
+ tal que para todo
+ $Y \subseteq X$,
+ ou
+ $Y \in \mathfrak{U}$
+ ou
+ $X \setminus Y \in \mathfrak{U}$,
+ não podendo acontecer ambos.''
+ 
+ Ainda usando a proposição anterior, 
+ temos a seguinte propriedade.
+ 
+ \begin{proposition}
+ Um ultrafiltro
+ $\mathfrak{U}$
+ em 
+ $X$
+ satisfaz a seguinte propriedade:
+ dada uma partição qualquer
+ \begin{equation*}
+    X = X_1 \sqcup X_2
+ \end{equation*}
+ de $X$ em dois subconjuntos, 
+ apenas um dos $X_i$ pertence a $\mathfrak{U}$. 
+ Aqui,
+ $\sqcup$
+ denota união disjunta.
+ \end{proposition}
+ 
+ \begin{proof}
+ Segue do fato de que conjuntos disjuntos não podem pertencer ao mesmo filtro.
+ \end{proof}
+ 
+ Interessantemente, não precisamos que
+ $A$
+ e
+ $B$
+ na proposição acima sejam disjuntos para
+ concluirmos que um deles está no ultrafiltro
+ (mas não concluiremos que \textbf{apenas um}
+ deles está no filtro).
+ De fato, melhor e mais útil é a proposição
+ a seguir.
+ 
+ \begin{proposition}
+ Se 
+ $\mathfrak{U}$ 
+ é um ultrafiltro e 
+ $X = A_1 \cup \dotsb \cup A_n$, 
+ então existe
+ $j$
+ tal que 
+ $A_j \in \mathfrak{U}$.
+ \end{proposition}
+ 
+ \begin{proof}
+ Se nenhum dos
+ $A_j$
+ estivesse no ultrafiltro,
+ então o complementar da união estaria em
+ $\mathfrak{U}$.
+ Ora, mas o complementar da união é
+ $\varnothing$,
+ absurdo.
+ \end{proof}
+ 
+ % 0. Toda família com a propriedade de 
+ % interseção finita está contida em um ultrafiltro. 
+ % (você usa sempre que diz "estenda isso para um
+ % ultrafiltro que contém...")
+ 
+ O lema a seguir é frequentemente chamado de
+ \textbf{Lema do Ultrafiltro}, do inglês
+ \textit{Ultrafilter Lemma}, e sua demonstração
+ utiliza o axioma da escolha na forma do
+ lema de Zorn.
+ 
+ \begin{lemma}[Ultrafiltro]
+ Todo filtro em
+ $X$
+ está contido em um ultrafiltro (em $X$).
+ \end{lemma}
+ % encontrei essa demonstração
+ % em https://proofwiki.org/wiki/Ultrafilter_Lemma,
+ % mas não estou muito confortável com ela...
+ % a afirmação que a interseção está na união
+ % eu que fiz, porque não vi sentido no que o
+ % site fez nessa parte
+ \begin{proof}
+ Seja
+ $\Omega$
+ o conjunto dos filtros em
+ $X$.
+ A relação de ordem parcial
+ $\subseteq$
+ ordena
+ $\Omega$
+ parcialmente. 
+ Tomando uma cadeia não vazia
+ $\mathscr{C} \subseteq \Omega$,
+ isto é, um subconjunto totalmente ordenado de
+ $\Omega$,
+ temos que
+ $\displaystyle{ \bigcup \mathscr{C} } \in \Omega$
+ e, portanto,
+ $\displaystyle{ \bigcup \mathscr{C} }$
+ é uma cota superior de
+ $\mathscr{C}$.
+ De fato, se
+ $A,B \in \displaystyle{ \bigcup \mathscr{C} }$
+ então existem filtros
+ $\mathfrak{F}, \mathfrak{F}' \in \mathscr{C}$
+ tais que
+ $A \in \mathfrak{F}$
+ e
+ $B \in \mathfrak{F}'$.
+ Como 
+ $\mathscr{C}$
+ é uma cadeia, podemos assumir s.p.g. que
+ $\mathfrak{F} \subseteq \mathfrak{F}'$.
+ Logo,
+ $A \in \mathfrak{F}'$
+ e, daí,
+ $A \cap B \in \mathfrak{F}'$.
+ Em particular,
+ $A \cap B \in \displaystyle{ \bigcup \mathscr{C} }$.
+ Pelo Lema de Zorn, 
+ para todo
+ $\mathfrak{F} \in \Omega$
+ existe um elemento maximal 
+ (com respeito à relação $\subseteq$)
+ $\mathfrak{F}'$
+ tal que
+ $\mathfrak{F} \subseteq \mathfrak{F}'$.
+ Ora, mas então por definição temos
+ $\mathfrak{F}'$
+ ultrafiltro, como desejado.
+ \end{proof}
+ 
+ \begin{corollary}
+ Toda família com a propriedade de interseção finita
+ está contida em um ultrafiltro.
+ \end{corollary}
+
+ \begin{proof}
+ Seja 
+ $X$
+ um conjunto não vazio e
+ $\mathcal{A} \subset \powerset X$
+ uma família com a propriedade da interseção finita.
+ Pelo Lema do Ultrafiltro,
+ existe um ultrafiltro
+ $\mathfrak{U}$
+ em 
+ $X$
+ tal que
+ $\mathcal{A} \subseteq \mathfrak{U}$.
+ \end{proof}
+ 
+ Sempre que dissermos
+ ``estenda para um ultrafiltro que contém...'',
+ esse corolário está sendo utilizado,
+ ainda que implicitamente.
+ Ademais, essa proposição e a propriedade de que
+ conjuntos disjuntos não pertencem ao mesmo
+ filtro tornam a caracterização de Hausdorff
+ imediata!
